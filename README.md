@@ -4,4 +4,4 @@ JIRA Plugin tutorial samples
 - Intellj 14
 
 MyViewTab/	https://developer.atlassian.com/jiradev/jira-applications/jira-software/tutorial-adding-a-detail-view-tab
-tutorial*/	https://developer.atlassian.com/jiradev/jira-platform/guides/issues/tutorial-adding-content-to-the-jira-view-issue-page
+tutorial-../	https://developer.atlassian.com/jiradev/jira-platform/guides/issues/tutorial-adding-content-to-the-jira-view-issue-page
