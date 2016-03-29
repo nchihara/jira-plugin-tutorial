@@ -1,0 +1,12 @@
+#set ($overdueDays = $daysAwayFromDueDate * -1)
+#if ($daysAwayFromDueDate > 1)
+    <span style="font-weight: bold; color: green;">This issue is due in $daysAwayFromDueDate days.</span>
+#elseif ($daysAwayFromDueDate == 1)
+    <span style="font-weight: bold; color: blue;">This is issue is due tomorrow.</span>
+#elseif ($daysAwayFromDueDate == 0)
+    <span style="font-weight: bold; color: purple;">This issue is due today.</span>
+#elseif ($daysAwayFromDueDate == -1)
+    <span style="font-weight: bold; color: #ff4500;">This issue was due yesterday!</span>
+#elseif ($daysAwayFromDueDate < -1)
+    <span style="font-weight: bold; color: red;">This issue is overdue by $overdueDays days!</span>
+#end

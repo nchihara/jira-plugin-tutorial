@@ -1,0 +1,7 @@
+JIRA plugin tutorial example for JIRA Software 7.1.2
+
+"Tutorial - Adding content to the JIRA View Issue page"
+ https://developer.atlassian.com/jiradev/jira-platform/guides/issues/tutorial-adding-content-to-the-jira-view-issue-page
+
+ - SDK 6.2.4
+ - Intellij 14
