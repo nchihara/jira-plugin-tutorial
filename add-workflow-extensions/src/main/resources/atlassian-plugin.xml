@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2">
+  <plugin-info>
+    <description>${project.description}</description>
+    <version>${project.version}</version>
+    <vendor name="${project.organization.name}" url="${project.organization.url}"/>
+    <param name="plugin-icon">images/pluginIcon.png</param>
+    <param name="plugin-logo">images/pluginLogo.png</param>
+  </plugin-info>
+  <!-- add our i18n resource -->
+  <resource type="i18n" name="i18n" location="add-workflow-extensions"/>
+  <!-- add our web resources -->
+  <web-resource key="add-workflow-extensions-resources" name="add-workflow-extensions Web Resources">
+    <dependency>com.atlassian.auiplugin:ajs</dependency>
+    <resource type="download" name="add-workflow-extensions.css" location="/css/add-workflow-extensions.css"/>
+    <resource type="download" name="add-workflow-extensions.js" location="/js/add-workflow-extensions.js"/>
+    <resource type="download" name="images/" location="/images"/>
+    <context>add-workflow-extensions</context>
+  </web-resource>
+  <workflow-condition key="parent-issue-blocking-condition" name="Parent Issue Blocking Condition" i18n-name-key="parent-issue-blocking-condition.name" class="com.example.plugins.tutorial.jira.workflow.ParentIssueBlockingConditionFactory">
+    <description key="parent-issue-blocking-condition.description">The Parent Issue Blocking Condition Plugin</description>
+    <condition-class>com.example.plugins.tutorial.jira.workflow.ParentIssueBlockingCondition</condition-class>
+    <resource type="velocity" name="view" location="templates/conditions/parent-issue-blocking-condition.vm"/>
+    <resource type="velocity" name="input-parameters" location="templates/conditions/parent-issue-blocking-condition-input.vm"/>
+    <resource type="velocity" name="edit-parameters" location="templates/conditions/parent-issue-blocking-condition-input.vm"/>
+  </workflow-condition>
+</atlassian-plugin>

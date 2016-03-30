@@ -1,0 +1,22 @@
+<tr bgcolor="ffffff">
+    <td align="right" valign="top" bgcolor="fffff0">
+        <span class="label">Statuses:</span>
+    </td>
+    <td bgcolor="ffffff" nowrap>
+        <table cellpadding="2" cellspacing="2">
+        #foreach ($status in $statuses)
+            <tr>
+                <td><input type="checkbox" name="$status.getId()"
+                #if (${selectedStatuses})
+                    #if (${selectedStatuses.contains($status.getId())})
+                    CHECKED
+                    #end
+                #end
+                ></td>
+                <td>#displayConstantIcon ($status)&nbsp;$status.getName()</td>
+            </tr>
+        #end
+        </table>
+        <br><font size="1">The parent issue statuses required to allow sub-task issue transitions.</font>
+    </td>
+</tr>
