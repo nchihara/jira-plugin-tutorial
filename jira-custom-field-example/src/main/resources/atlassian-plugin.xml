@@ -1,0 +1,33 @@
+<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2">
+    <plugin-info>
+        <description>${project.description}</description>
+        <version>${project.version}</version>
+        <vendor name="${project.organization.name}" url="${project.organization.url}" />
+        <param name="plugin-icon">images/pluginIcon.png</param>
+        <param name="plugin-logo">images/pluginLogo.png</param>
+    </plugin-info>
+
+    <!-- add our i18n resource -->
+    <resource type="i18n" name="i18n" location="jira-custom-field-example"/>
+    
+    <!-- add our web resources -->
+    <web-resource key="jira-custom-field-example-resources" name="jira-custom-field-example Web Resources">
+        <dependency>com.atlassian.auiplugin:ajs</dependency>
+        
+        <resource type="download" name="jira-custom-field-example.css" location="/css/jira-custom-field-example.css"/>
+        <resource type="download" name="jira-custom-field-example.js" location="/js/jira-custom-field-example.js"/>
+        <resource type="download" name="images/" location="/images"/>
+
+        <context>jira-custom-field-example</context>
+    </web-resource>
+<!--
+    <component-import key="applicationProperties" interface="com.atlassian.sal.api.ApplicationProperties" />
+-->
+    <customfield-type key="admintextfield" name="Admin Editable Text Field" class="com.example.plugins.tutorial.customfield.JiraCustomField">
+        <description>A text field only editable by those with admin permissions</description>
+        <resource type="velocity" name="view" location="templates/plugins/fields/view/view-basictext.vm"/>
+        <resource type="velocity" name="edit" location="templates/edit-jiraadminonlytext.vm"/>
+        <resource type="velocity" name="xml" location="templates/plugins/fields/xml/xml-basictext.vm"/>
+    </customfield-type>
+
+</atlassian-plugin>
