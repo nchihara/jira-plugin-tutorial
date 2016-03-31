@@ -33,6 +33,7 @@ public class ParentIssueBlockingCondition extends AbstractJiraCondition
         while(st.hasMoreTokens())
         {
             String statusId = st.nextToken();
+            // Since JIRA 7.0, Issue.getStatusObject() is deprecated
             if (parentIssue.getStatus().getId().equals(statusId))
             {
                 return true;
@@ -40,14 +41,4 @@ public class ParentIssueBlockingCondition extends AbstractJiraCondition
         }
         return false;
     }
-/***
-    public boolean passesCondition(Map transientVars, Map args, PropertySet ps)
-    {
-        String word = (String)transientVars.get(FIELD_WORD);
-        Issue issue = getIssue(transientVars);
-        String description = issue.getDescription();
-
-        return description != null && description.contains(word);
-    }
-***/
 }
