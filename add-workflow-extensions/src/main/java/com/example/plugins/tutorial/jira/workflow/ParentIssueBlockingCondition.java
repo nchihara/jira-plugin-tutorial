@@ -1,9 +1,10 @@
 package com.example.plugins.tutorial.jira.workflow;
 
-import com.atlassian.jira.component.ComponentAccessor;
+// import com.atlassian.jira.component.ComponentAccessor;
 import com.atlassian.jira.issue.Issue;
 import com.atlassian.jira.workflow.WorkflowFunctionUtils;
 import com.atlassian.jira.workflow.condition.AbstractJiraCondition;
+// import com.atlassian.jira.issue.status.Status;
 import com.opensymphony.module.propertyset.PropertySet;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,7 +22,8 @@ public class ParentIssueBlockingCondition extends AbstractJiraCondition
     {
         Issue subTask = (Issue) transientVars.get(WorkflowFunctionUtils.ORIGINAL_ISSUE_KEY);
 
-        Issue parentIssue = ComponentAccessor.getIssueManager().getIssueObject(subTask.getParentId());
+        // JIRA 7.1.2 API
+        Issue parentIssue = subTask.getParentObject();
         if (parentIssue == null)
         {
             return false;
@@ -33,8 +35,11 @@ public class ParentIssueBlockingCondition extends AbstractJiraCondition
         while(st.hasMoreTokens())
         {
             String statusId = st.nextToken();
+
             // Since JIRA 7.0, Issue.getStatusObject() is deprecated
-            if (parentIssue.getStatus().getId().equals(statusId))
+            // instead of parentIssue.getStatusObject().getId(),
+            // String parentIssue.getStatusID()
+            if (parentIssue.getStatusId().equals(statusId))
             {
                 return true;
             }

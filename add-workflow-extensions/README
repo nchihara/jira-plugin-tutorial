@@ -3,4 +3,7 @@ https://developer.atlassian.com/jiradev/jira-platform/guides/workflow/tutorial-c
 
 - SDK 6.2.4
 - Intellj 14
-- JIRA Core 7.1.2
+- JIRA Software 7.1.4
+
+When you create workflow as tutorial, apply workflow with this plugin to "Sub-task" type issues only.
+To any other type issue, apply normal workflow.

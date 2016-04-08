@@ -19,8 +19,7 @@ import java.util.*;
  * This is typically where you put default values into the velocity context and where you store user input.
  */
 @Named("ParentIssueBlokingConditionFactory")
-public class ParentIssueBlockingConditionFactory extends AbstractWorkflowPluginFactory
-        implements WorkflowPluginConditionFactory
+public class ParentIssueBlockingConditionFactory extends AbstractWorkflowPluginFactory implements WorkflowPluginConditionFactory
 {
     @ComponentImport
     private final ConstantsManager constantsManager;
@@ -31,20 +30,23 @@ public class ParentIssueBlockingConditionFactory extends AbstractWorkflowPluginF
         this.constantsManager = constantsManager;
     }
 
+    @Override
     protected void getVelocityParamsForInput(Map velocityParams)
     {
-        //all available statuses
+        // all available statuses
         // constantsManager.getStatusObjects() is deprecated since 7.0
         Collection<Status> statuses = constantsManager.getStatuses();
         velocityParams.put("statuses", Collections.unmodifiableCollection(statuses));
     }
 
+    @Override
     protected void getVelocityParamsForEdit(Map velocityParams, AbstractDescriptor descriptor)
     {
         getVelocityParamsForInput(velocityParams);
         velocityParams.put("selectedStatuses", getSelectedStatusIds(descriptor));
     }
 
+    @Override
     protected void getVelocityParamsForView(Map velocityParams, AbstractDescriptor descriptor)
     {
         Collection selectedStatusIds = getSelectedStatusIds(descriptor);

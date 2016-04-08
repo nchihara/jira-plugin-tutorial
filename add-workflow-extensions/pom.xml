@@ -160,8 +160,8 @@
         </plugins>
     </build>
     <properties>
-        <jira.version>7.1.2</jira.version>
-        <jira.software.application.version>7.1.2</jira.software.application.version>
+        <jira.version>7.1.4</jira.version>
+        <jira.software.application.version>7.1.4</jira.software.application.version>
         <amps.version>6.2.3</amps.version>
         <plugin.testrunner.version>1.2.3</plugin.testrunner.version>
         <atlassian.spring.scanner.version>1.2.6</atlassian.spring.scanner.version>
