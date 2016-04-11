@@ -7,3 +7,7 @@ https://developer.atlassian.com/jiradev/jira-platform/guides/workflow/tutorial-c
 
 When you create workflow as tutorial, apply workflow with this plugin to "Sub-task" type issues only.
 To any other type issue, apply normal workflow.
+
+(Step.1)  done.
+(Step.2)  done
+          - before atlas-run, delete test module ( test/*)
