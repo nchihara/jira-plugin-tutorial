@@ -25,14 +25,23 @@
     <resource type="velocity" name="input-parameters" location="templates/conditions/parent-issue-blocking-condition-input.vm"/>
     <resource type="velocity" name="edit-parameters" location="templates/conditions/parent-issue-blocking-condition-input.vm"/>
   </workflow-condition>
-<!--  <workflow-function key="close-parent-issue-post-function" name="Close Parent Issue Post Function" i18n-name-key="close-parent-issue-post-function.name" class="com.example.plugins.tutorial.jira.workflow.CloseParentIssuePostFunctionFactory"> -->
+  <!--  <workflow-function key="close-parent-issue-post-function" name="Close Parent Issue Post Function" i18n-name-key="close-parent-issue-post-function.name" class="com.example.plugins.tutorial.jira.workflow.CloseParentIssuePostFunctionFactory"> -->
   <workflow-function key="close-parent-issue-post-function" name="Close Parent Issue Post Function" i18n-name-key="close-parent-issue-post-function.name" class="com.atlassian.jira.plugin.workflow.WorkflowNoInputPluginFactory">
     <description key="close-parent-issue-post-function.description">The Close Parent Issue Post Function Plugin</description>
     <function-class>com.example.plugins.tutorial.jira.workflow.CloseParentIssuePostFunction</function-class>
     <resource type="velocity" name="view" location="templates/postfunctions/close-parent-issue-post-function.vm"/>
-<!--
+    <!--
     <resource type="velocity" name="input-parameters" location="templates/postfunctions/close-parent-issue-post-function-input.vm"/>
     <resource type="velocity" name="edit-parameters" location="templates/postfunctions/close-parent-issue-post-function-input.vm"/>
 -->
   </workflow-function>
+  <workflow-validator key="close-issue-workflow-validator" name="Close Issue Workflow Validator" i18n-name-key="close-issue-workflow-validator.name" class="com.example.plugins.tutorial.jira.workflow.CloseIssueWorkflowValidatorFactory">
+    <description key="close-issue-workflow-validator.description">The Close Issue Workflow Validator Plugin</description>
+    <validator-class>com.example.plugins.tutorial.jira.workflow.CloseIssueWorkflowValidator</validator-class>
+    <resource type="velocity" name="view" location="templates/validators/close-issue-workflow-validator.vm"/>
+<!--
+    <resource type="velocity" name="input-parameters" location="templates/validators/close-issue-workflow-validator-input.vm"/>
+    <resource type="velocity" name="edit-parameters" location="templates/validators/close-issue-workflow-validator-input.vm"/>
+-->
+  </workflow-validator>
 </atlassian-plugin>

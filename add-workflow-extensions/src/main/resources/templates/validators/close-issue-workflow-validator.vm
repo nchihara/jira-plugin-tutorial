@@ -1,0 +1,2 @@
+The parent issue must have one of the following statuses to allow sub-task transitions:
+#foreach ($status in $statuses)<b>$status.getName()</b>#if($velocityCount != $statuses.size())#if($velocityCount == ($statuses.size() - 1))&nbsp;or&nbsp;#else,&nbsp;#end#else.#end#end
