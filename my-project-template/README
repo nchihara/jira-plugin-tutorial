@@ -1,0 +1,25 @@
+JIRA Core 7.x Plugin SDK example : Creating workflow extensions
+https://developer.atlassian.com/jiradev/jira-platform/guides/workflow/tutorial-creating-workflow-extensions
+
+- SDK 6.2.4
+- Intellj 14
+- JIRA Software 7.1.4
+
+If you want to run this on other JIRA Application such like JIRA ServiceDesk,  edit pom.xml to add following
+<application>
+	<applicationKey>jira-servicedesk</applicationKey>
+	<version>${jira.servicedesk.application.version}</version>
+</application>
+.....
+<properties>
+.....
+	<jira.servicedesk.application.version>7.1.4</jira.servicedesk.application.version>
+.....
+</properties>	
+
+[Additional Info:]
+You need 
+- some icon files in src/main/resources/images/
+- 2 exported Workflow files in src/main/resources/wfb
+- MyProjectTemplate.soy in src/main/resources/soy
+

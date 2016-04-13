@@ -1,0 +1,48 @@
+{
+  "issue-type-scheme":
+  {
+    "name": "my.project.template.issuetype.scheme.name",
+    "description": "my.project.template.issuetype.scheme.description",
+    "issue-types": [
+      {
+        "key": "issueType1",
+        "name": "New Feature",
+        "description": "A new feature of the product, which has yet to be developed.",
+        "icon": "/images/newfeature.png",
+        "workflow": "wf1"
+      },
+      {
+        "key": "issueType2",
+        "name": "Bug",
+        "description": "A problem which impairs or prevents the functions of the product.",
+        "icon": "/images/bug.png"
+      },
+      {
+        "key": "issueType3",
+        "name": "Sub-Task",
+        "description": "The sub-task of the issue",
+        "icon": "/images/subtask_alternate.png",
+        "sub-task": true,
+        "workflow": "wf2"
+      }
+    ]
+  },
+  "workflow-scheme":
+  {
+    "name": "my.project.template.workflow.scheme.name",
+    "description": "my.project.template.workflow.scheme.description",
+    "default-workflow": "wf1",
+    "workflows": [
+      {
+        "key": "wf1",
+        "name": "my.project.template.workflow.wf1.name",
+        "workflow-bundle": "/wfb/My-Project-Template-JIRA-Classic-Workflow.jwb"
+      },
+      {
+        "key": "wf2",
+        "name": "my.project.template.workflow.wf2.name",
+        "workflow-bundle": "/wfb/My-Project-Template-Software-Simplified-Workflow.jwb"
+      }
+    ]
+  }
+}
