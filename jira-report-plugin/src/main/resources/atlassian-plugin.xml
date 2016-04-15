@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2">
+  <plugin-info>
+    <description>${project.description}</description>
+    <version>${project.version}</version>
+    <vendor name="${project.organization.name}" url="${project.organization.url}"/>
+    <param name="plugin-icon">images/pluginIcon.png</param>
+    <param name="plugin-logo">images/pluginLogo.png</param>
+  </plugin-info>
+  <!-- add our i18n resource -->
+  <resource type="i18n" name="i18n" location="jira-report-plugin"/>
+  <!-- add our web resources -->
+  <web-resource key="jira-report-plugin-resources" name="jira-report-plugin Web Resources">
+    <dependency>com.atlassian.auiplugin:ajs</dependency>
+    <resource type="download" name="jira-report-plugin.css" location="/css/jira-report-plugin.css"/>
+    <resource type="download" name="jira-report-plugin.js" location="/js/jira-report-plugin.js"/>
+    <resource type="download" name="images/" location="/images"/>
+    <context>jira-report-plugin</context>
+  </web-resource>
+  <report name="Single Level Group By Report Extended" i18n-name-key="single-level-group-by-report-extended.name" key="single-level-group-by-report-extended" class="com.atlassian.plugins.tutorial.jira.reports.SingleLevelGroupByReportExtended">
+    <description key="single-level-group-by-report-extended.description">The Single Level Group By Report Extended Plugin</description>
+    <resource name="view" type="velocity" location="/templates/reports/single-level-group-by-report-extended/view.vm"/>
+    <resource name="i18n" type="i18n" location="SingleLevelGroupByReportExtended"/>
+    <label key="single-level-group-by-report-extended.label"/>
+    <properties>
+        <property>
+            <key>filterid</key>
+            <name>report.singlelevelgroupby.filterId</name>
+            <description>report.singlelevelgroupby.filterId.description</description>
+            <type>filterpicker</type>
+            <i18n>false</i18n>
+        </property>
+        <property>
+            <key>mapper</key>
+            <name>report.singlelevelgroupby.mapper</name>
+            <description>report.singlelevelgroupby.mapper.description</description>
+            <type>select</type>
+            <values class="com.atlassian.jira.issue.statistics.FilterStatisticsValuesGenerator" />
+        </property>
+    </properties>
+  </report>
+  <report name="Creation Report" i18n-name-key="creation-report.name" key="creation-report" class="com.atlassian.plugins.tutorial.jira.reports.CreationReport">
+    <description key="creation-report.description">The Creation Report Plugin</description>
+    <resource name="view" type="velocity" location="/templates/reports/creation-report/view.vm"/>
+    <resource name="i18n" type="i18n" location="CreationReport"/>
+    <label key="creation-report.label" />
+      <properties>
+          <property>
+              <key>projectid</key>
+              <name>report.issuecreation.projectid.name</name>
+              <description>report.issuecreation.projectid.description</description>
+              <type>filterprojectpicker</type>
+          </property>
+          <property>
+              <key>startDate</key>
+              <name>report.issuecreation.startdate</name>
+              <description>report.issuecreation.startdate.description</description>
+              <type>date</type>
+          </property>
+          <property>
+              <key>endDate</key>
+              <name>report.issuecreation.enddate</name>
+              <description>report.issuecreation.enddate.description</description>
+              <type>date</type>
+          </property>
+          <property>
+              <key>interval</key>
+              <name>report.issuecreation.interval</name>
+              <description>report.issuecreation.interval.description</description>
+              <type>long</type>
+              <default>3</default>
+          </property>
+      </properties>
+  </report>
+</atlassian-plugin>
