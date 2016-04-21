@@ -1,1 +1,35 @@
-<h1>view.vm</h1>
+<div style="padding: 5px">
+<!-- Display the report configuration -->
+<h4>
+    $i18n.getText('report.issuecreation.project'): $projectName |
+    $i18n.getText('report.issuecreation.duration'): $outlookDate.format($startDate) - $outlookDate.format($endDate) |
+    $i18n.getText('report.issuecreation.interval'): $interval $i18n.getText('report.issuecreation.interval.days')
+</h4>
+<br />
+<table style="width: 100%; border: 0; background-color: lightgrey">
+    <!-- Create a row to display the bars-->
+    <tr valign="bottom" style="background-color: white; padding: 1px">
+        #foreach ($normalCount in $normalisedCount)
+            <td height="$maxHeight" align="center">
+            #if ($normalCount == 0)
+                &nbsp;
+            #else
+                <img src="${baseurl}/images/bluepixel.gif" width="12" height="$normalCount">
+            #end
+            </td>
+        #end
+    </tr>
+    <!-- Have one row for the issue count -->
+    <tr style="background-color: #eee; padding: 1px">
+        #foreach ($count in $openCount)
+            <td align="center"><b>$count</b></td>
+        #end
+    </tr>
+    <!-- And one row to display the date -->
+    <tr style="background-color: #eee; padding: 1px">
+        #foreach ($date in $dates)
+            <td align="center"><b>$outlookDate.format($date)</b></td>
+        #end
+    </tr>
+</table>
+</div>
