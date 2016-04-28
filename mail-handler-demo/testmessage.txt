@@ -1,0 +1,21 @@
+ME-Version: 1.0
+Received: by 123.45.67.89 with HTTP; Mon, 22 Jul 2013 13:09:38 -0700 (PDT)
+Date: Mon, 22 Jul 2013 13:09:38 -0700
+Delivered-To: admin@example.com
+Message-ID: <CAKOugVWfh27gSCxgUqJE9QTgOJUJiabS27jw@mail.gmail.com>
+Subject: Test Message Subject
+From: admin <admin@admin.com>
+To: admin <admin@admin.com>
+Content-Type: multipart/alternative; boundary=485b397dd4ab88758a04e21f414f
+
+--485b397dd4ab88758a04e21f414f
+Content-Type: text/plain; charset=ISO-8859-1
+
+Test message body.
+
+--485b397dd4ab88758a04e21f414f
+Content-Type: text/html; charset=ISO-8859-1
+
+Test message body.<br>
+
+--485b397dd4ab88758a04e21f414f--

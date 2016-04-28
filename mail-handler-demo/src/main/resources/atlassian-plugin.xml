@@ -1,0 +1,47 @@
+<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2">
+    <plugin-info>
+        <description>${project.description}</description>
+        <version>${project.version}</version>
+        <vendor name="${project.organization.name}" url="${project.organization.url}" />
+        <param name="plugin-icon">/images/pluginIcon.png</param>
+        <param name="plugin-logo">/images/pluginLogo.png</param>
+    </plugin-info>
+
+    <!-- add our i18n resource -->
+    <resource type="i18n" name="i18n" location="mail-handler-demo"/>
+    
+    <!-- add our web resources -->
+    <web-resource key="mail-handler-demo-resources" name="mail-handler-demo Web Resources">
+        <dependency>com.atlassian.auiplugin:ajs</dependency>
+        
+        <resource type="download" name="mail-handler-demo.css" location="/css/mail-handler-demo.css"/>
+        <resource type="download" name="mail-handler-demo.js" location="/js/mail-handler-demo.js"/>
+        <resource type="download" name="images/" location="/images"/>
+
+        <context>mail-handler-demo</context>
+    </web-resource>
+<!--
+    <message-handler i18n-name-key="demohandler.name" key="demoHandler"
+                     class="com.example.plugins.tutorial.jira.mailhandlerdemo.DemoHandler"
+                     add-edit-url="/secure/admin/EditHandlerDetailsUsingParams!default.jspa" weight="0"/>
+-->
+    <message-handler i18n-name-key="demohandler.name"
+                     key="demoHandler" class="com.example.plugins.tutorial.jira.mailhandlerdemo.DemoHandler"
+                     add-edit-url="/secure/admin/EditDemoHandlerDetails!default.jspa"
+                     weight="0"/>
+<!--
+    <component key="issue-key-validator" class="com.example.plugins.tutorial.jira.mailhandlerdemo.IssueKeyValidator"/>
+    <component key="pluginAccessor" class="com.atlassian.plugin.PluginAccessor"/>
+-->
+    <webwork1 key="actions" name="Actions" class="java.lang.Object">
+        <actions>
+            <action name="com.example.plugins.tutorial.jira.mailhandlerdemo.EditDemoHandlerDetailsWebAction"
+                    alias="EditDemoHandlerDetails"
+                    roles-required="admin">
+                <view name="input">/editDemoHandlerDetails.vm</view>
+                <view name="securitybreach">/secure/views/securitybreach.jsp</view>
+            </action>
+        </actions>
+    </webwork1>
+
+</atlassian-plugin>

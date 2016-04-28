@@ -1,0 +1,40 @@
+## couple of available navigation helpers
+#set ($modifierKey = $action.browserUtils.getModifierKey())
+#set ($submitAccessKey = $i18n.getText('AUI.form.submit.button.accesskey'))
+#set ($submitTitle = $i18n.getText('AUI.form.submit.button.tooltip', [$submitAccessKey, $modifierKey]))
+#set ($cancelAccessKey = $i18n.getText('AUI.form.cancel.link.accesskey'))
+#set ($cancelTitle = $i18n.getText('AUI.form.cancel.link.tooltip', [$cancelAccessKey, $modifierKey]))
+<html>
+<head>
+    <title>$action.handlerName</title>
+</head>
+<body>
+    <form class="aui" action="EditDemoHandlerDetails.jspa" method="POST" name="mailHandlerForm" id="mailHandlerForm">
+        <div class="form-body">
+           <h2>$action.handlerName</h2>
+           <span class="global-errors-location">
+                #if ($action.getHasErrorMessages())
+                    #foreach ($error in $action.getFlushedErrorMessages())
+                        #AUImessage("error" "" $textutils.htmlEncode(${error}) "" "" "" "false")
+                    #end
+                #end
+            </span>
+            <input type="hidden" name="atl_token" value="$atl_token">
+            <label for="issue-key">$i18n.getText('demohandler.issue.key')</label>
+            <input type="text" class="text" id="issue-key" name="issueKey" value="$!textutils.htmlEncode($issueKey)">
+
+        <div class="buttons-container form-footer">
+            <div class="buttons">
+                #if ($action.editing)
+                    #set ($addButtonLabel = $i18n.getText('common.words.save'))
+                #else
+                    #set ($addButtonLabel = $i18n.getText('common.forms.add'))
+                #end
+                <input id="addButton" type="submit" class="button" value="$!addButtonLabel" accesskey="$submitAccessKey" title="$submitTitle">
+                <a href="IncomingMailServers.jspa" class="cancel" accesskey="$cancelAccessKey" title="$cancelTitle">$i18n.getText("AUI.form.cancel.link.text")</a>
+            </div>
+
+        </div>
+    </form>
+</body>
+</html>
