@@ -1,0 +1,13 @@
+JIRA Core/Software 7.1.4 Plugin SDK example : Tutorial - Custom fields in JIRA
+https://developer.atlassian.com/jiradev/jira-platform/guides/fields/tutorial-custom-fields-in-jira
+
+- SDK 6.2.4
+- Intellj 14.x 
+- JIRA Core 7.1.4 or JIRA Software 7.1.4
+
+(note)
+Modification to run this example on JIRA 7.1.x
+MoneyCustomField.java  according to Edgar's comment on https://jira.atlassian.com/browse/JRA-59526
+ - add getComponent() to create GeneralConfigManager & CustomFieldValuePersister
+ - define GeneralConfigManager & CustomFieldValuePersister as private final with @ComponentImport
+ - define constructer with @Inject
